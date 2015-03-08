@@ -27,7 +27,7 @@ while s.lower() != 'end':
         if remaining == 0:
             break
 
-    print(num, '=', ' + '.join(['{0} x {1}'.format(unit, changes[unit]) for unit in units if unit in changes]))
+    print(num, '= [', ' ] + [ '.join(['{0} x {1}'.format(unit, changes[unit]) for unit in units if unit in changes]), ']')
 
     total += num
     for unit, change in changes.items():
