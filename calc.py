@@ -8,7 +8,11 @@ while s.lower() != 'end':
     try:
         num = int(s.strip())
     except ValueError:
-        s = input('>>> ')
+        try:
+            s = input('>>> ')
+        except EOFError:
+            print('')
+            break
         continue
 
     changes = {}
@@ -29,7 +33,11 @@ while s.lower() != 'end':
     for unit, change in changes.items():
         total_changes[unit] += change
 
-    s = input('>>> ')
+    try:
+        s = input('>>> ')
+    except EOFError:
+        print('')
+        break
 
 print('Total:', total)
 for unit in units:
